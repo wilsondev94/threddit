@@ -1,0 +1,165 @@
+<svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+  <!-- Outer circle -->
+  <circle
+    cx="200"
+    cy="200"
+    r="170"
+    fill="none"
+    stroke="#2563ab"
+    strokeWidth="16"
+  />
+
+  <!-- Spiral/thread design -->
+  <g transform="translate(200, 200)">
+    <!-- Inner spiral lines -->
+    <path
+      d="M 0,-40 Q 30,-30 45,-10"
+      fill="none"
+      stroke="#2563ab"
+      strokeWidth="12"
+      strokeLinecap="round"
+    />
+    <path
+      d="M 40,0 Q 30,30 10,45"
+      fill="none"
+      stroke="#2563ab"
+      strokeWidth="12"
+      strokeLinecap="round"
+    />
+    <path
+      d="M 0,40 Q -30,30 -45,10"
+      fill="none"
+      stroke="#2563ab"
+      strokeWidth="12"
+      strokeLinecap="round"
+    />
+    <path
+      d="M -40,0 Q -30,-30 -10,-45"
+      fill="none"
+      stroke="#2563ab"
+      strokeWidth="12"
+      strokeLinecap="round"
+    />
+
+    <!-- Outer spiral extensions -->
+    <path
+      d="M 10,-45 L 30,-80"
+      fill="none"
+      stroke="#2563ab"
+      strokeWidth="10"
+      strokeLinecap="round"
+    />
+    <path
+      d="M 32,-75 L 50,-105"
+      fill="none"
+      stroke="#2563ab"
+      strokeWidth="10"
+      strokeLinecap="round"
+    />
+
+    <path
+      d="M 45,-10 L 75,-30"
+      fill="none"
+      stroke="#2563ab"
+      strokeWidth="10"
+      strokeLinecap="round"
+    />
+    <path
+      d="M 77,-28 L 105,-45"
+      fill="none"
+      stroke="#2563ab"
+      strokeWidth="10"
+      strokeLinecap="round"
+    />
+
+    <path
+      d="M 45,10 L 80,30"
+      fill="none"
+      stroke="#2563ab"
+      strokeWidth="10"
+      strokeLinecap="round"
+    />
+    <path
+      d="M 82,32 L 110,50"
+      fill="none"
+      stroke="#2563ab"
+      strokeWidth="10"
+      strokeLinecap="round"
+    />
+
+    <path
+      d="M 10,45 L 30,75"
+      fill="none"
+      stroke="#2563ab"
+      strokeWidth="10"
+      strokeLinecap="round"
+    />
+    <path
+      d="M 32,77 L 50,105"
+      fill="none"
+      stroke="#2563ab"
+      strokeWidth="10"
+      strokeLinecap="round"
+    />
+
+    <path
+      d="M -10,45 L -30,80"
+      fill="none"
+      stroke="#2563ab"
+      strokeWidth="10"
+      strokeLinecap="round"
+    />
+    <path
+      d="M -32,82 L -45,110"
+      fill="none"
+      stroke="#2563ab"
+      strokeWidth="10"
+      strokeLinecap="round"
+    />
+
+    <path
+      d="M -45,10 L -75,30"
+      fill="none"
+      stroke="#2563ab"
+      strokeWidth="10"
+      strokeLinecap="round"
+    />
+    <path
+      d="M -77,32 L -105,50"
+      fill="none"
+      stroke="#2563ab"
+      strokeWidth="10"
+      strokeLinecap="round"
+    />
+
+    <path
+      d="M -45,-10 L -80,-30"
+      fill="none"
+      stroke="#2563ab"
+      strokeWidth="10"
+      strokeLinecap="round"
+    />
+    <path
+      d="M -82,-32 L -110,-50"
+      fill="none"
+      stroke="#2563ab"
+      strokeWidth="10"
+      strokeLinecap="round"
+    />
+
+    <path
+      d="M -10,-45 L -30,-75"
+      fill="none"
+      stroke="#2563ab"
+      strokeWidth="10"
+      strokeLinecap="round"
+    />
+    <path
+      d="M -32,-77 L -50,-105"
+      fill="none"
+      stroke="#2563ab"
+      strokeWidth="10"
+      strokeLinecap="round"
+    />
+  </g>
+</svg>

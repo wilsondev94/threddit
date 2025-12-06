@@ -1,6 +1,7 @@
 import "@/styles/globals.css";
 import { cn } from "@/lib/utils";
 import { Inter } from "next/font/google";
+import Navbar from "@/components/Navbar";
 
 export const metadata = {
   title: "Threddit",
@@ -23,7 +24,7 @@ export default function RootLayout({
       )}
     >
       <body className="min-h-screen pt-12 bg-slate-50 antialiased ">
-        {/* <Navbar /> */}
+        <Navbar />
         <div className="container max-w-7xl mx-auto h-full pt-2">
           {children}
         </div>
