@@ -1,6 +1,7 @@
 import "@/styles/globals.css";
 import { cn } from "@/lib/utils";
 import { Inter } from "next/font/google";
+import { Toaster } from "sonner";
 import Navbar from "@/components/Navbar";
 
 export const metadata = {
@@ -28,6 +29,18 @@ export default function RootLayout({
         <div className="container max-w-7xl mx-auto h-full pt-2">
           {children}
         </div>
+        <Toaster
+          position="top-center"
+          toastOptions={{
+            classNames: {
+              toast: "!rounded-md !p-4 !shadow-lg !w-fit !max-w-[90vw]",
+              title: "text-sm font-medium",
+              description: "text-xs opacity-90",
+              success: "!text-white !bg-green-500",
+              error: "!text-white !bg-red-500",
+            },
+          }}
+        />
       </body>
     </html>
   );
