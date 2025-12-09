@@ -2,12 +2,15 @@
 
 import { Button } from "@/components/ui/Button";
 import { Input } from "@/components/ui/input";
+import { useCreateCommunity } from "@/hooks/mutation-services/useCreateCpmmunity";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 
 const Page = () => {
   const router = useRouter();
   const [input, setInput] = useState<string>("");
+
+  const { createCommunity, isLoading } = useCreateCommunity(input);
 
   return (
     <div className="container flex items-center h-full max-w-3xl mx-auto">
@@ -37,16 +40,16 @@ const Page = () => {
 
         <div className="flex justify-end gap-4">
           <Button
-            // disabled={isLoading}
+            disabled={isLoading}
             variant="subtle"
             onClick={() => router.back()}
           >
             Cancel
           </Button>
           <Button
-            // isLoading={isLoading}
-            disabled={input.length === 0}
-            // onClick={() => createCommunity()}
+            isLoading={isLoading}
+            disabled={input.length === 0 || isLoading}
+            onClick={() => createCommunity()}
           >
             Create Community
           </Button>
