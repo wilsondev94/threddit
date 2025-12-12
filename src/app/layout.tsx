@@ -7,7 +7,7 @@ import TanstackQueryProvider from "@/providers/TanstackQueryProivider";
 
 export const metadata = {
   title: "Threddit",
-  description: "A mock of the Reddit application.",
+  description: "A mocked Reddit application.",
 };
 
 const inter = Inter({ subsets: ["latin"] });

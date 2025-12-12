@@ -2,7 +2,7 @@
 
 import { Button } from "@/components/ui/Button";
 import { Input } from "@/components/ui/input";
-import { useCreateCommunity } from "@/hooks/mutation-services/useCreateCpmmunity";
+import { useCreateCommunity } from "@/hooks/mutation-services/useCreateCommunity";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 
