@@ -5,6 +5,7 @@ import { Post as PostType, User, Vote } from "@prisma/client";
 import { MessageSquare } from "lucide-react";
 import Link from "next/link";
 import { useRef } from "react";
+import EditorOutput from "./EditorOuput";
 
 interface PostProps {
   post: PostType & {
@@ -54,7 +55,7 @@ const Post = ({ post, subredditName, commentCount }: PostProps) => {
             className="relative text-sm max-h-40 w-full overflow-clip"
             ref={postRef}
           >
-            {/* <EditorOutput content={post.content} /> */}
+            <EditorOutput content={post.content} />
             {postRef.current?.clientHeight === 160 ? (
               // blur bottom if content is too long
               <div className="absolute bottom-0 left-0 h-24 w-full bg-gradient-to-t from-white to-transparent"></div>
