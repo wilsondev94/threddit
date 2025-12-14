@@ -6,7 +6,7 @@ import { useIntersection } from "@mantine/hooks";
 import { Loader2 } from "lucide-react";
 import { useSession } from "next-auth/react";
 import { useEffect, useRef } from "react";
-import Posts from "./Post";
+import Post from "./Post";
 
 interface PostFeedProps {
   initialPosts: ExtendedPost[];
@@ -52,11 +52,22 @@ const PostFeed = ({ initialPosts, subredditName }: PostFeedProps) => {
           // Add a ref to the last post in the list
           return (
             <li key={post.id} ref={ref}>
-              <Posts />
+              <Post
+                post={post}
+                commentCount={post.comments.length}
+                subredditName={post.subreddit.name}
+              />
             </li>
           );
         } else {
-          return <Posts key={post.id} />;
+          return (
+            <Post
+              key={post.id}
+              post={post}
+              commentCount={post.comments.length}
+              subredditName={post.subreddit.name}
+            />
+          );
         }
       })}
 
