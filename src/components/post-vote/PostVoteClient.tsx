@@ -13,7 +13,6 @@ interface PostVoteClientProps {
 }
 
 const PostVoteClient = ({
-  postId,
   initialVotesCount,
   initialVote,
 }: PostVoteClientProps) => {
