@@ -1,5 +1,5 @@
 import MiniCreatePost from "@/components/MiniCreatePost";
-import PostFeed from "@/components/PostFeedt";
+import PostFeed from "@/components/PostFeed";
 import { getAuthSession } from "@/lib/auth";
 import { db } from "@/lib/db";
 import { notFound } from "next/navigation";
