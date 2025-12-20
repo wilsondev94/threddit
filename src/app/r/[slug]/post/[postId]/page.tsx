@@ -1,3 +1,5 @@
+import CommentsSection from "@/components/CommentSection";
+import EditorOutput from "@/components/EditorOuput";
 import PostVoteServer from "@/components/post-vote/postVoteServer";
 import { buttonVariants } from "@/components/ui/Button";
 import { db } from "@/lib/db";
@@ -69,6 +71,16 @@ const SubRedditPostPage = async ({ params }: SubRedditPostPageProps) => {
           <h1 className="text-xl font-semibold py-2 leading-6 text-gray-900">
             {post?.title ?? cachedPost.title}
           </h1>
+
+          <EditorOutput content={post?.content ?? cachedPost.content} />
+          <Suspense
+            fallback={
+              <Loader2 className="h-5 w-5 animate-spin text-zinc-500" />
+            }
+          >
+            {/* @ts-expect-error Server Component */}
+            <CommentsSection postId={post?.id ?? cachedPost.id} />
+          </Suspense>
         </div>
       </div>
     </div>
