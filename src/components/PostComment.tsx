@@ -1,20 +1,18 @@
 "use client";
 
+import { usePostComment } from "@/hooks/mutation-services/usePostComment";
 import { useOnClickOutside } from "@/hooks/use-on-click-outside";
-import { CommentValidation } from "@/lib/validators/comment";
+import { formatTimeToNow } from "@/lib/helpers";
 import { Comment, CommentVote, User } from "@prisma/client";
-import { useMutation } from "@tanstack/react-query";
-import axios from "axios";
 import { MessageSquare } from "lucide-react";
+import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { FC, useRef, useState } from "react";
-import { toast } from "sonner";
-import { UserAvatar } from "./UserAvatar";
-import { formatTimeToNow } from "@/lib/helpers";
 import { Button } from "./ui/Button";
-import { useSession } from "next-auth/react";
 import { Label } from "./ui/label";
 import { Textarea } from "./ui/textarea";
+import { UserAvatar } from "./UserAvatar";
+import CommentVotes from "./CommentVotes";
 
 type ExtendedComment = Comment & {
   votes: CommentVote[];
@@ -43,27 +41,7 @@ const PostComment: FC<PostCommentProps> = ({
     setIsReplying(false);
   });
 
-  const { mutate: postComment, isLoading } = useMutation({
-    mutationFn: async ({ postId, text, replyToId }: CommentValidation) => {
-      const payload: CommentValidation = { postId, text, replyToId };
-
-      const { data } = await axios.patch(
-        `/api/subreddit/post/comment/`,
-        payload
-      );
-      return data;
-    },
-
-    onError: () => {
-      return toast.error(
-        "Comment wasn't created successfully. Please try again."
-      );
-    },
-    onSuccess: () => {
-      router.refresh();
-      setIsReplying(false);
-    },
-  });
+  const { postComment, isLoading } = usePostComment(setIsReplying);
 
   return (
     <div ref={commentRef} className="flex flex-col">
@@ -89,11 +67,11 @@ const PostComment: FC<PostCommentProps> = ({
       <p className="text-sm text-zinc-900 mt-2">{comment.text}</p>
 
       <div className="flex gap-2 items-center">
-        {/* <CommentVotes
+        <CommentVotes
           commentId={comment.id}
-          votesCount={votesAmt}
+          votesCount={votesCount}
           currentVote={currentVote}
-        /> */}
+        />
 
         <Button
           onClick={() => {

@@ -2,19 +2,13 @@
 
 import { CommentValidation } from "@/lib/validators/comment";
 import { useMutation } from "@tanstack/react-query";
-import axios, { AxiosError } from "axios";
+import axios from "axios";
 import { useRouter } from "next/navigation";
 import { toast } from "sonner";
 
-interface UseCreateCommentProps {
-  
-  setInput: (_value: string) => void;
-}
-
-export function useCreateComment({ setInput }: UseCreateCommentProps) {
+export function usePostComment(setIsReplying: (_value: boolean) => void) {
   const router = useRouter();
-
-  const { mutate: comment, isLoading } = useMutation({
+  const { mutate: postComment, isLoading } = useMutation({
     mutationFn: async ({ postId, text, replyToId }: CommentValidation) => {
       const payload: CommentValidation = { postId, text, replyToId };
 
@@ -25,25 +19,19 @@ export function useCreateComment({ setInput }: UseCreateCommentProps) {
       return data;
     },
 
-    onError: (err) => {
-      if (err instanceof AxiosError) {
-        if (err.response?.status === 401) {
-          return toast.error("You must be logged in to comment");
-        }
-      }
-
+    onError: () => {
       return toast.error(
-        "Comment wasn't created successfully. Please try again."
+        "Comment wasn't posted successfully. Please try again."
       );
     },
     onSuccess: () => {
       router.refresh();
-      setInput("");
+      setIsReplying(false);
     },
   });
 
   return {
-    comment,
+    postComment,
     isLoading,
   };
 }
