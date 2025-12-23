@@ -4,6 +4,7 @@ import { Icons } from "./Icons";
 import { UserAccountNav } from "./UserAccountNav";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/lib/auth";
+import SearchBar from "./SearchBar";
 
 export default async function Navbar() {
   const session = await getServerSession(authOptions);
@@ -18,8 +19,7 @@ export default async function Navbar() {
           </p>
         </Link>
 
-        {/* search bar */}
-        {/* <SearchBar /> */}
+        <SearchBar />
 
         {/* actions */}
         {session?.user ? (
