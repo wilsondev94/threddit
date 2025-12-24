@@ -19,9 +19,7 @@ export function useUpdateUsername() {
     onError: (err) => {
       if (err instanceof AxiosError) {
         if (err.response?.status === 409) {
-          return toast.error(
-            "Username already taken. Please choose another username."
-          );
+          return toast.error(err.response.data);
         }
       }
 
